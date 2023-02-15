@@ -1,0 +1,30 @@
+SQL queries
+
+show tables;    /*show tables*/
+DESC sales;     
+
+SELECT * from sales;     /*select everything inside sales */
+
+SELECT Customers,SaleDate, Amount, Boxes, Amount/Boxes as 'amount per box' from sales
+where Amount >20000 
+order by Amount;             /*as used to name the column*/ /*order by used to sort the column*/
+
+
+select * from geo where region = "Americas";
+
+select * from sales
+where geoid = 'G1'
+order by PID, Amount desc; /* where is filtering and order by is sorting*/
+select * from sales
+where amount > 10000 and saledate >= '2022-01-01';
+
+select saledate, amount from sales
+where amount > 10000 and year(saledate)= 2022;  /* year function to filter only 2022*/
+
+select * from sales
+where boxes between 0 and 20; 
+
+select saledate, amount, boxes, weekday(saledate) as 'day' from sales
+where weekday(saledate) = 4;      /* weekday function to filter days, Monday =0, Tue=1 and so on*/
+
+
